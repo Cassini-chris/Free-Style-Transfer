@@ -23,7 +23,13 @@ gcsfs==0.6.2
 google-auth==1.21.1
 google-auth-oauthlib==0.4.1
 google-pasta==0.2.0
+
+python-dateutil==2.8.1
+google-cloud-storage==1.28.1
+cloudstorage==0.10.1
+
 grpcio==1.31.0
+gunicorn==19.7.1
 h5py==2.10.0
 HeapDict==1.0.1
 hub==0.11.0.0

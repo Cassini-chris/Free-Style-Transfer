@@ -1,0 +1,12 @@
+runtime: python38
+env: standard
+instance_class: F4_HIGHMEM
+
+entrypoint: gunicorn -b :$PORT main:app
+
+handlers:
+- url: /
+  script: auto
+
+- url: /static
+  static_dir: static
