@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"
+<!-- Query is needed for the $.post method -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<head>
+  <title>Style APP</title>
+</head>
+
+<body>
+<div id="container_1">
+  <p>Free Style Transfer by Christoph Mittendorf </p>
+    <span>Your Image</span>
+
+    <input id ="image-selector" type="file"/>
+    <button id="predict-button">Transfer Style</button>
+
+<div style="padding:10px; text-align: center;">
+     <img id="selected-image" src="" width="200" height="200"/>
+</div>
+
+
+<div class="w3-content" style="max-width:400px">
+  <img class="mySlides" src="https://storage.googleapis.com/epicml/1.jpg" style="width:100%;display:none">
+  <img class="mySlides" src="https://storage.googleapis.com/epicml/2.jpg" style="width:100%">
+  <img class="mySlides" src="https://storage.googleapis.com/epicml/3.jpg" style="width:100%;display:none">
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col s4">
+      <img class="demo w3-opacity w3-hover-opacity-off" src="https://storage.googleapis.com/epicml/1.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+    </div>
+    <div class="w3-col s4">
+      <img class="demo w3-opacity w3-hover-opacity-off" src="https://storage.googleapis.com/epicml/2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+    </div>
+    <div class="w3-col s4">
+      <img class="demo w3-opacity w3-hover-opacity-off" src="https://storage.googleapis.com/epicml/3.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
+    </div>
+
+  </div>
+</div>
+
+<script>
+var painter_no = 1;
+function currentDiv(n) {showDivs(slideIndex = n);  painter_no = n;}
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-opacity-off";
+
+}
+
+
+<!------------------------------------------------------------------------------------------>
+<!-- Initiating FLASK APP ------------------------------------------------------------------>
+
+//Select Image for Upload
+let base64Image;
+$("#image-selector").change(function() {
+  let reader = new FileReader();
+  reader.onload = function(e) {
+  let dataURL = reader.result;
+   $('#selected-image').attr("src", dataURL);
+    base64Image= dataURL.replace(/^data:image\/(png|jpeg);base64,/, "");
+    //alert(base64Image);
+}
+//Displays image in html <img>
+reader.readAsDataURL($("#image-selector")[0].files[0]);
+});
+
+//UPLOAD IMAGE TO FLASK
+$("#predict-button").click(function(event){
+       alert("Encoding of Image  --> Decode --> ML prediction --> Sending new Image back to HTML");
+let message = {image: base64Image,
+               painter: painter_no
+              }
+console.log(message);
+
+//Requesting the response of the @app.route("/predict", methods = ["POST"])
+//LOCALHOST needs to be changed for online use
+// /predict is the name of APP route point in the Python files
+$.post("http://localhost:5000/predict", JSON.stringify(message), function(response){
+
+  //Console Log is for testing purpose only
+  //console.log(response);
+
+  // Setting the SRC attribute to the BASE64 + Response from the Neural Style APP
+  document.getElementById('img')
+      .setAttribute('src', 'data:image/png;base64,' + response);
+});
+});
+</script>
+<!-- Ending FLASK APP ---------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------>
+
+  <div class="w3-content" style="max-width:400px">
+  <img id='img' src="" style="width:100%">
+  </div>
+
+
+</body>
+</html>

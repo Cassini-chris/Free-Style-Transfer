@@ -1,0 +1,51 @@
+<style media="screen">
+  /*BIG */
+  @media screen and (min-width: 601px) {
+    #headline_text {
+      font-size: 80px;
+      text-shadow: 2px 2px 4px grey;
+    }
+
+    #masthead_text {
+      font-size: 125px;
+    }
+
+    .list-inline-item {
+      padding: 6px;
+    }
+  }
+
+  /* SMALL */
+  @media screen and (max-width: 600px) {
+    #headline_text {
+      font-size: 42px;
+      text-shadow: 2px 2px 4px grey;
+    }
+
+    #masthead_text {
+      font-size: 80px;
+    }
+
+    .list-inline-item {
+      padding: 1px;
+    }
+
+   .addition {display: none}
+   .bordershadow {
+   height:70px;
+   width:80%;
+   line-height:70px;
+   text-align:center;
+   border:2px solid #dd;
+   border-radius: 3px;
+   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+   transition: all 200ms ease-out;
+   }
+   .bordershadow:hover {
+   box-shadow: 0 0 6px rgba(35, 173, 278, 1);
+   }
+  }
+</style>
+
+
+      <div class="bordershadow"><img src='/static/images/collection_1a.png' class="img-responsive" style="width:50%" alt="Image"></div>
