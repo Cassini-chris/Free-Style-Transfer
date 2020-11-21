@@ -4,6 +4,8 @@
 Please checkout the blog post on EpicML.net 
 >>> https://epicml.net/_articles/2020/style_transfer/neural_style_transfer.php
 
+![Image of Style Transfer](https://epicml.net/_articles/2020/style_transfer/images/heading.jpg)
+
 In detail, in this project I have explored Neural-Style-Transfer. In particular, I have built a free Neural Style Transfer web-application that runs entirely on Google Cloud. The idea is to use predominately Cloud services and Open-Source technologies to make the app tangible and accessible for everyone. In detail, to build and run the web-application, I used:
 - [x] Google App Engine
 - [x] Google Cloud Storage
@@ -18,3 +20,6 @@ the repo does hold the following:
 - [x] main.py (the python application with the ml model)
 - [x] requiremenrs.txt (to specify the dependencies)
 - [x] A static folder (including the web interface and the images / favicons used
+
+Exmaple pic:
+![Example pic:](https://epicml.net/_articles/2020/style_transfer/images/example_transfer.png)
