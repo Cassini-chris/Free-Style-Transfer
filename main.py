@@ -166,16 +166,6 @@ def load_own_img():
     #decode image
     decoded = base64.b64decode(encoded)
 
-    #Upload to Bucket
-    # datetime object containing current date and time
-
-    # now = datetime.now()
-    # storage_client = storage.Client()
-    # bucket_name = 'neural_style_bucket'
-    # bucket = storage_client.get_bucket(bucket_name)
-    # blob = bucket.blob("neural_style_bucket/upload_" + str(now) + "." + img_check)
-    # blob.upload_from_string(decoded, content_type='image/' + img_check)
-
     img = decoded
     max_dim = 512
     img = tf.image.decode_image(img, channels=3)
