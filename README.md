@@ -22,4 +22,5 @@ the repo does hold the following:
 - [x] A static folder (including the web interface and the images / favicons used
 
 Exmaple pic:
+
 ![Example pic:](https://epicml.net/_articles/2020/style_transfer/images/example_transfer.png)
