@@ -3,7 +3,7 @@
 
 Please checkout:
 
-## [>>> Final Applicaton](http://free-style-transfer.icu/ "Free Style Transfer!")
+## [>>> Final Application](http://free-style-transfer.icu/ "Free Style Transfer!")
 
 ### [>>> Blog article](https://epicml.net/_articles/2020/style_transfer/neural_style_transfer.php "Free Style Transfer Explained!")
 
