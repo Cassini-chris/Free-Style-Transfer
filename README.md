@@ -1,9 +1,11 @@
 # Free-Style-Transfer
 ### Neutral Style Transfer Application that runs on Google Cloud App Engine using Flask.
 
-Please checkout the blog post on [EpicML!](https://epicml.net)
+Please checkout:
 
-### [>>> Blog article]( https://epicml.net/_articles/2020/style_transfer/neural_style_transfer.php "Free Style Transfer Explained!")
+## [>>> Final Applicaton](http://free-style-transfer.icu/ "Free Style Transfer!")
+
+### [>>> Blog article](https://epicml.net/_articles/2020/style_transfer/neural_style_transfer.php "Free Style Transfer Explained!")
 
 
 ![Image of Style Transfer](https://epicml.net/_articles/2020/style_transfer/images/heading.jpg)
